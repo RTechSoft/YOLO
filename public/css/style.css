@@ -15,6 +15,13 @@ body {margin: 0; background-color: #669ece;}
 
 /*NAV*/
 
+#logo{
+	float: left;
+}
+#logout_a, #settings_a{
+	display: none;
+}
+
 #nav_bottom a:visited, #nav_bottom a:link, #nav_top a:visited, #nav_top a:link {background-color: #3a6d98; text-decoration: none; color: #fff;}
 #nav_top a:hover, #nav_bottom a:hover {background-color: #578fbe;}
 

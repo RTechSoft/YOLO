@@ -1,5 +1,5 @@
-// var IP = 'http://54.214.176.172';
-var IP = 'http://localhost:8000';
+var IP = 'http://54.214.176.172';
+// var IP = 'http://localhost:8000';
 var markers = {},
 	pollData = {},
 	map;
@@ -120,3 +120,21 @@ var markers = {},
 		pollData = {number : number, me : me};
 		return false;
 	});
+
+	document.getElementById('login_form').addEventListener('submit', function (e) {
+		var number = document.getElementById('number').value,
+			password = document.getElementById('password').value;
+		e.preventDefault();
+		cXHR.post(IP + '/login')
+			.send({number : number, password : password})
+			.then(function (data) {
+				$('#login_form').fadeOut();
+				$('#logout_a, #settings_a').fadeIn();
+			})
+			.onerror(function (e) {
+				alert(e.message);
+			});
+		return false;
+	});
+
+

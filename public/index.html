@@ -14,9 +14,15 @@
 	<body>
 		<div id="container">
 			<img src="imgs/logo_yolo.png" id="logo" />
-			<img src="imgs/android_dl_button.png" style="float: right; margin-top: 30px;" id="android"/>
+			<div id="nav_top">
+				<!-- a href="">Locate</a -->
+				<a href="#map">Map</a>
+				<a href="#settings" id="settings_a">Settings</a>
+				<a href="#logout" id="logout_a">Log Out</a>
+			</div>
 			<div id="map_canvas"></div>
 			<div id="bold_title">Locate a Loved One</div>
+			<img src="imgs/android_dl_button.png" style="float: right; margin-top: 30px;" id="android"/>
 			<form id="locate_form">
 				<input type="text" name="fullname" class="input" id="fullname" value="" placeholder="Number of Loved One" />
 				<p></p>
@@ -27,12 +33,13 @@
 			<form id="login_form">
 				<input type="text" id="number" class="input" value="" placeholder="Your phone number" />
 				<p></p>
-				<input type="text" id="password" class="input" value="" placeholder="Your Password" />
+				<input type="password" id="password" class="input" value="" placeholder="Your Password" />
 				<p></p>
 				<input type="submit" id="login" value="Login" />
 			</form>
 		</div><!-- container -->
 		<script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places,geometry"></script>
+		<script src="//code.jquery.com/jquery.js" type="text/javascript"></script>
 		<script src="js/curl.js" type="text/javascript"></script>
 		<script src="js/geoxml3.js" type="text/javascript"></script>
 		<script src="js/curl.js" type="text/javascript"></script>
