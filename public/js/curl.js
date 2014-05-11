@@ -64,7 +64,7 @@
 				}
 
 				req.open(this.method, this.url, true);
-				req.withCredentials = true;
+				// req.withCredentials = true;
 				req.setRequestHeader('Accept', 'application/json');
 
 				if (this.method !== 'GET')

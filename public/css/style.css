@@ -4,10 +4,14 @@ h1, h2, h3, h4, h5, ul, li, form, blockquote, p {margin: 0; padding: 0; font-wei
 ul {margin-left: 1.5em;}
 p {margin: 1.1em 0; word-wrap: break-word;}
 
-/*GENERAL SHIT*/
-body {margin: 0; background-color: #669ece; font-family: 'DroidSans', 'sans-serif';}
+* {
+	font-family: 'DroidSans', 'Open Sans', 'sans-serif' !important;
+}
 
-#fullname, #mobile_no {text-align: center;}
+/*GENERAL SHIT*/
+body {margin: 0; background-color: #669ece;}
+
+#fullname, #mobile_no, .input {text-align: center;}
 
 /*NAV*/
 
@@ -19,7 +23,7 @@ form#edit {width: 100%;}
 
 /*BUTTONS*/
 
-#locate {cursor: pointer; text-align: center; text-decoration: none;}
+#locate, #login {cursor: pointer; text-align: center; text-decoration: none;}
 #save_big {padding: 0.4em 2em; font-size: 1.2em;}
 #cancel_big {padding: 0.4em 2em; font-size: 1.2em;}
 .button_green, .button_gray, .button_red {color: #fff; border: 0;}
@@ -27,7 +31,7 @@ form#edit {width: 100%;}
 .button_gray {background-color: #989898;}
 .button_red {background-color: #c25c5d;}
 
-#locate, #save_big {cursor: pointer; text-align: center; text-decoration: none;
+#locate, #login, #save_big {cursor: pointer; text-align: center; text-decoration: none;
 
 /*text*/
 color: #fff;
@@ -66,8 +70,8 @@ MEDIA QUERIES
 @media screen and (max-width: 2000px) {
 
 #logo {margin: 0 auto; padding: 2em 0 1em 0; width: 15%; height: 15%;}
-#fullname, #mobile_no {font-size: 1em; width: 300px; padding: 0.3em 0.8em;}
-#locate {padding: 0.4em 3em; margin-bottom: 1.3em; font-size: 1.5em;}
+#fullname, #mobile_no, .input {font-size: 1em; width: 300px; padding: 0.3em 0.8em;}
+#locate, #login {padding: 0.4em 3em; margin-bottom: 1.3em; font-size: 1.5em;}
 
 #container {width: 730px; margin: 0 auto;}
 #map_canvas {width: 730px; height: 400px; margin: 0 auto;}
@@ -86,13 +90,13 @@ MEDIA QUERIES
 @media screen and (max-width: 745px) {
 
 body {text-align: center;}
-#logo {margin: 0 auto; padding: 1.8em 0 0.8em 0; width: 40%; height: 40%;}
+#logo, #android {margin: 0 auto; padding: 1.8em 0 0.8em 0; width: 40%; height: 40%; clear: both; display: inline-block; float: none;}
 
 #container {width: 100%;}
 #map_canvas {width: 520px; height: 300px; margin: 0 auto;}
 
 #bold_title {font-weight: bold; font-size: 1.3em; margin: 0.7em 0;}
-#fullname, #mobile_no {font-size: 1em; width: 250px;}
+#fullname, #mobile_no, .input {font-size: 1em; width: 250px;}
 
 /*NAV*/
 
@@ -102,7 +106,7 @@ body {text-align: center;}
 
 /*BUTTONS*/
 
-#locate {padding: 0.4em 2em; font-size: 1.2em;}
+#locate, #login {padding: 0.4em 2em; font-size: 1.2em;}
 .button_green, .button_gray, .button_red {padding: 0.3em; font-weight: bold; padding: 0.7em;}
 #save_big {margin: 0 auto;}
 

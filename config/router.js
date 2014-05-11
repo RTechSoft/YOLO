@@ -3,6 +3,7 @@ var sms_interface = require(__dirname + '/../controllers/interface');
 
 module.exports = function (router, logger) {
 
+	router.get('/user', user.get);
 	router.get('/users', user.search);
 	router.post('/login', user.login);
 	router.post('/register', user.register);
