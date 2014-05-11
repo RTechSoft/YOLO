@@ -13,8 +13,10 @@ exports.globe_callback = function (req, res, next) {
 	console.log(globe);
 	console.log(globe.Auth);
 	console.log(globe.auth);
-	// var auth = globe.Auth(globe_app_id, globe_app_secret);
 	
+	var auth = globe.Auth(globe_app_id, globe_app_secret);
+	var login_url = auth.getLoginUrl();
+
 	console.log(data);
 	if (!code) {
        	res.send(400, {message : 'Login failed'});
