@@ -2,12 +2,25 @@ var config = require(__dirname + '/../config/config'),
     logger = require(__dirname + '/../lib/logger'),
     util = require(__dirname + '/../helpers/util'),
     db = require(__dirname + '/../lib/mongodb');
-    db = require(__dirname + '/../helpers/globe/globeapi')
+    globe = require(__dirname + '/../helpers/globe/globeapi')
     globe_app_secret = '7bacabddd57453fe55e590d9681a74b1ed25ecfd191c9b86e10a216242745ffa',
-    globe_app_id = 'd5y9LtgXA76CG5cjpyiAXnCGzy7BtkMz';
+    globe_app_id = 'd5y9LtgXA76CG5cjpyiAXnCGzy7BtkMz',
+    g_auth = globe.Auth(globe_app_id,  globe_app_secret);
 
 exports.globe_callback = function (req, res, next) {
-	var data = req.body;
+	var data = req.body,
+		code = data['code'];
+
+	console.log(data);
+	if (!code) {
+       	res.send(400, {message : 'Login failed'});
+        return;
+    }
+
+
+
+    res.send(200, {message : 'Login failed'});
+    return;
 	db.get().collection('users', function (err, collection) {
 		if (err) return next(err);
 		collection.find({_id : data.number, password : data.password}).toArray(function (err, docs) {
@@ -22,6 +35,12 @@ exports.globe_callback = function (req, res, next) {
 
 exports.globe_sms_notify = function (req, res, next) {
 	var data = req.body;
+
+	console.log(data);
+
+	res.send(200);
+	return
+
 	data._id = data.number;
 	data.password = util.randomString(8);
 	delete data.number;
