@@ -1,16 +1,17 @@
 var config = require(__dirname + '/../config/config'),
     logger = require(__dirname + '/../lib/logger'),
     util = require(__dirname + '/../helpers/util'),
-    db = require(__dirname + '/../lib/mongodb');
-    globe = require(__dirname + '/../helpers/globe/globeapi')
+    db = require(__dirname + '/../lib/mongodb'),
+    globe = require(__dirname + '/../helpers/globe/globeapi'),
     globe_app_secret = '7bacabddd57453fe55e590d9681a74b1ed25ecfd191c9b86e10a216242745ffa',
-    globe_app_id = 'd5y9LtgXA76CG5cjpyiAXnCGzy7BtkMz',
-    g_auth = globe.Auth(globe_app_id,  globe_app_secret);
+    globe_app_id = 'd5y9LtgXA76CG5cjpyiAXnCGzy7BtkMz';
 
 exports.globe_callback = function (req, res, next) {
 	var data = req.body,
 		code = data['code'];
-
+	
+	var auth = globe.Auth(appId, appSecret);
+	
 	console.log(data);
 	if (!code) {
        	res.send(400, {message : 'Login failed'});
