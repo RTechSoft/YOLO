@@ -130,3 +130,12 @@ body {text-align: center;}
 #map_canvas {width: 280px; height: 200px; margin: 0 auto;}
 
 }
+
+
+.fullscreen{
+	position: fixed !important;
+	top:0;
+	left: 0;
+	width: 100% !important;
+	height: 100% !important;
+}

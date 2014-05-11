@@ -29,7 +29,7 @@ var markers = {},
 						markers[a._id] = marker;
 					}
 				});
-				parse_kml(sources.storm.source,'storm',function(){
+				parse_kml(sources.storm.source,'storm',map,function(){
 					//call this immidietly to read eveything from the storm
 					convert_to_polygon_storm(function(){
 
@@ -138,3 +138,7 @@ var markers = {},
 	});
 
 
+
+function resizeMap() {
+    document.getElementById('map_canvas').classList.toggle('fullscreen');
+}

@@ -23,8 +23,9 @@ var kml_sources = {}
 		}
 
 	}
-	, parse_kml = function(source,type,callback) {
+	, parse_kml = function(source,type,map,callback) {
 		var myParser = new geoXML3.parser({
+			map : map,
 			suppressInfoWindows: true,
 					// map: map,
 			afterParse : function(doc){
