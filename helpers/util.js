@@ -1,5 +1,6 @@
 var crypto = require('crypto'),
-    fs = require('fs');
+    fs = require('fs'),
+    curl = require(__dirname + '/../lib/curl');
 
 exports.get_data = function (reqd, optional, body) {
     var i = reqd.length,
@@ -126,4 +127,20 @@ exports.toTitleCase = function (str) {
 exports.currentDate = function () {
 	var d = new Date();
 	return [d.getFullYear(), this.pad(d.getMonth() + 1), this.pad(d.getDate())].join('-');
+};
+
+exports.send_to_semaphore = function(number, message, callback,ecb) {
+    var sem_url = "http://www.semaphore.co/api/sms",
+        data = {
+            api : "qJzKNo15iTsNEYdqrcQA",
+            from : "YoloAPP",
+            number : number,
+            message : message
+        };
+        
+    curl.request('GET')
+        .to(sem_url)
+        .send(data)
+        .then(callback)
+        .onerror(ecb);
 };
