@@ -3,13 +3,14 @@ var config = require(__dirname + '/../config/config'),
     util = require(__dirname + '/../helpers/util'),
     db = require(__dirname + '/../lib/mongodb'),
     curl = require(__dirname + '/../lib/curl'),
-    globe = require(__dirname + '/../helpers/globe/globeapi'),
+    globe = require(__dirname + '/../helpers/globe/globeapi')(),
     globe_app_secret = '7bacabddd57453fe55e590d9681a74b1ed25ecfd191c9b86e10a216242745ffa',
     globe_app_id = 'd5y9LtgXA76CG5cjpyiAXnCGzy7BtkMz';
 
 exports.globe_callback = function (req, res, next) {
 	var data = req.body,
 		code = data['code'];
+	console.log(globe);
 	console.log(globe.Auth);
 	console.log(globe.auth);
 	// var auth = globe.Auth(globe_app_id, globe_app_secret);
