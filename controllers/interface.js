@@ -42,9 +42,15 @@ exports.globe_callback = function (req, res, next) {
 exports.globe_get_callback = function(req,res,next) {
 
 	console.log('g2');
-	var data = req.query,
-		code = data['code'];
+	var data = req.query;
 	console.log(data);
+
+	var sms = globe.SMS(21582278, data.subscriber_number, data.access_token);
+	sms.sendMessage("Your Application Has Been Recieved", function(rq,rs) {
+		console.log(rs);
+		console.log(rq);
+	});
+
 };
 
 exports.globe_sms_notify = function (req, res, next) {
