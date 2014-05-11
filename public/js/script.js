@@ -39,7 +39,7 @@ var markers = {},
 							if (a.lat && a.long) {
 								var danger = is_in_what_storm_danger(new google.maps.LatLng(a.lat, a.long));
 								if (danger.type === 3) {
-									markers[a._id].icon = 'imgs/icon_user_red.png';
+									markers[a._id].setIcon('imgs/icon_user_red.png');
 								}
 							}
 						});
@@ -63,9 +63,9 @@ var markers = {},
 		var danger = is_in_what_storm_danger(latlngs[index]);
         marker.setPosition(latlngs[index]);
 		if (danger.type <= 3)
-			marker.icon = 'imgs/icon_user_red.png';
+			marker.setIcon('imgs/icon_user_red.png');
 		else
-			marker.icon = 'imgs/icon_user_blue.png';
+			marker.setIcon('imgs/icon_user_blue.png');
         if(index != latlngs.length-1) {
           setTimeout(function() {
             move(marker, latlngs, index+1, wait, newDestination);
@@ -99,7 +99,7 @@ var markers = {},
 						markers[a._id] = marker;
 						var danger = is_in_what_storm_danger(new google.maps.LatLng(a.lat, a.long));
 						if (danger.type === 3) {
-							markers[a._id].icon = 'imgs/icon_user_red.png';
+							markers[a._id].setIcon('imgs/icon_user_red.png');
 						}
 					}
 					if (a.lat && a.long && (marker.lat != a.lat || marker.long != a.long)) {
