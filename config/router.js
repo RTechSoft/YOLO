@@ -2,6 +2,7 @@ var user = require(__dirname + '/../controllers/user');
 
 module.exports = function (router, logger) {
 
+	router.get('/users', user.search);
 	router.post('/login', user.login);
 	router.post('/register', user.register);
 	router.put('/update', user.update);
