@@ -47,3 +47,38 @@ exports.update = function (req, res, next) {
 		});
 	});
 };
+
+exports.search = function (req, res, next) {
+	var where = {},
+		data = req.query,
+		filter = false;
+	if (data.number && data.me) {
+		filter = true;
+	}
+	db.get().collection('users', function (err, collection) {
+		if (err) return next(err);
+		collection.find().toArray(function (err, docs) {
+			if (err) return next(err);
+			if (filter) {
+				docs = docs.filter(function (a) {
+					var i = a.loved_ones.length;
+					console.log(a._id === data.number);
+					if (a._id !== data.number) return false;
+					while (i--) {
+						console.log(data.me);
+						console.log(a.loved_ones[i].email);
+						console.log(a.loved_ones[i].number);
+						if (a.loved_ones[i].email === data.me ||
+							a.loved_ones[i].number === data.me) {
+							console.log('asdf');
+							return true;
+						}
+					}
+					return false;
+				});
+			}
+			res.send(200, docs);
+		});
+	});
+};
+

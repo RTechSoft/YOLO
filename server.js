@@ -13,7 +13,7 @@ app.use(require('cookie-parser')(config.cookie_secret));
 app.use(require('response-time')());
 app.use(require('compression')());
 app.use(require('method-override')());
-app.use(require(__dirname + '/lib/cors')(config.frontend_server_url));
+app.use(require(__dirname + '/lib/cors')('*'));
 app.use(require(__dirname + '/config/router')(express.Router(), logger));
 
 app.listen(config.port);
