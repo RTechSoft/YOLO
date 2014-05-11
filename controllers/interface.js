@@ -56,26 +56,24 @@ exports.globe_sms_notify = function (req, res, next) {
 	var data = req.body;
 
 	
-	console.log(req.query);
 	console.log('notify');
+	console.log(req.query);
 	console.log(data);
 
 	res.send(200);
-	return
+	return;
+};
 
-	data._id = data.number;
-	data.password = util.randomString(8);
-	delete data.number;
-	db.get().collection('users', function (err, collection) {
-		if (err) return next(err);
-		collection.insert(data, function (err) {
-			if (err) return next(err);
-			res.send(200, {
-				username : data._id,
-				password : data.password
-			});
-		});
-	});
+exports.globe_sms_notify2 = function (req, res, next) {
+	var data = req.body;
+
+	
+	console.log('notify2');
+	console.log(req.query);
+	console.log(data);
+
+	res.send(200);
+	return;
 };
 
 
