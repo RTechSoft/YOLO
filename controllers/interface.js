@@ -8,12 +8,12 @@ var config = require(__dirname + '/../config/config'),
     globe_app_id = 'd5y9LtgXA76CG5cjpyiAXnCGzy7BtkMz';
 
 exports.globe_callback = function (req, res, next) {
+	console.log('g1');
 	var data = req.body,
 		code = data['code'];
-	console.log(globe);
-	console.log(globe.Auth);
-	console.log(globe.auth);
 	
+	console.log(req.query);
+
 	var auth = globe.Auth(globe_app_id, globe_app_secret);
 	var login_url = auth.getLoginUrl();
 
@@ -39,9 +39,20 @@ exports.globe_callback = function (req, res, next) {
 	});
 };
 
+exports.globe_get_callback = function(req,res,next) {
+
+	console.log('g2');
+	var data = req.query,
+		code = data['code'];
+	console.log(data);
+};
+
 exports.globe_sms_notify = function (req, res, next) {
 	var data = req.body;
 
+	
+	console.log(req.query);
+	console.log('notify');
 	console.log(data);
 
 	res.send(200);
