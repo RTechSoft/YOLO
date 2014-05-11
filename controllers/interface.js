@@ -10,7 +10,7 @@ exports.globe_callback = function (req, res, next) {
 	var data = req.body,
 		code = data['code'];
 	
-	var auth = globe.Auth(appId, appSecret);
+	var auth = globe.Auth(globe_app_id, globe_app_secret);
 	
 	console.log(data);
 	if (!code) {
