@@ -4,8 +4,9 @@ var config = require(__dirname + '/../config/config'),
     db = require(__dirname + '/../lib/mongodb'),
     curl = require(__dirname + '/../lib/curl'),
     globe = require(__dirname + '/../helpers/globe/globeapi')(),
-    globe_app_secret = '7bacabddd57453fe55e590d9681a74b1ed25ecfd191c9b86e10a216242745ffa',
-    globe_app_id = 'd5y9LtgXA76CG5cjpyiAXnCGzy7BtkMz';
+    globe_app_secret = 'ed673d3db2ef05a4dd49adbf0b1e2f50645e751e0aad1e7b49b60e4ed9d9aeff',
+    globe_app_id = 'ApryBSRyXAzhMoc4rxiXMKhB5rBaSryn',
+    globe_short_code = "21584768";
 
 exports.globe_callback = function (req, res, next) {
 	console.log('g1');
@@ -45,8 +46,8 @@ exports.globe_get_callback = function(req,res,next) {
 	var data = req.query;
 	console.log(data);
 
-	var sms = globe.SMS(21582278, data.subscriber_number, data.access_token);
-	sms.sendMessage("Your Application Has Been Recieved", function(rq,rs) {
+	var sms = globe.SMS(globe_short_code, data.subscriber_number, data.access_token);
+	sms.sendMessage("Your Application Has Been Recieved!", function(rq,rs) {
 		console.log(rs.body);
 	});
 
